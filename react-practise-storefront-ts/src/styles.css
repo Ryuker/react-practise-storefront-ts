@@ -1,0 +1,13 @@
+.active {
+  color: red;
+}
+
+nav.ul{
+  display:flex;
+  padding-left: 0;
+}
+
+nav.ul li{
+  display: block;
+  padding-left: 10px;
+}
