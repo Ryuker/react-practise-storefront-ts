@@ -1,5 +1,8 @@
-import { Product } from '../routes/Store.tsx';
-
+interface Product {
+  id: number;
+  name: string;
+  description: string;
+}
 
 export default function Product({details} : {details: Product}){
   return (
