@@ -1,13 +1,9 @@
 import Product from "../components/product";
 
-export interface Product {
-  id: number;
-  name: string;
-  description: string;
-}
+
 
 export default function Store(){
-  const products: Product[] = [
+  const products = [
      {
       id: 1,
       name: "Cheese",
