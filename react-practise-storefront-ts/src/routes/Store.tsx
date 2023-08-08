@@ -26,13 +26,24 @@ export default function Store(){
     }
   ]
 
+  function handleProductAddToCart(){
+    console.log("adding product to cart");
+  }
+
+  function handleProductDeleteFromCart(){
+    console.log("deleting product from cart");
+  }
+
 
   return (
     <>
       <h2>Store Page</h2>
       <ul>
         {products && products.map(product => 
-          <Product key={product.id} details={product} />
+          <Product key={product.id} product={product} 
+            onProductAdd={handleProductAddToCart} 
+            onProductDelete={handleProductDeleteFromCart}
+          />
         )}
       </ul>
     </>
