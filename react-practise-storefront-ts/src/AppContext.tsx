@@ -1,17 +1,17 @@
 import { ReactNode, createContext, useState} from 'react'
-import { CartProduct } from './components/Cart';
+import { ICartProduct } from './components/Cart';
 
 interface AppContextType{
-  cart: CartProduct[];
+  cart: ICartProduct[];
   onProductAdd: () => any;
 } 
 
 const AppContext = createContext<AppContextType | null>(null);
 
 function AppProvider(children: ReactNode){
-  const [cart, setCart] = useState<CartProduct[]>([]);
+  const [cart, setCart] = useState<ICartProduct[]>([]);
 
-  function handleProductAdd(newProduct: CartProduct){
+  function handleProductAdd(newProduct: ICartProduct){
     console.log("adding product to cart");
     const existingProduct = cart.find((product) => product.id === newProduct.id);
     
