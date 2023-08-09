@@ -1,5 +1,5 @@
 import {useState} from 'react';
-interface CartProduct {
+export interface CartProduct {
   id: number;
   name: string;
   quantity: number;
