@@ -7,6 +7,13 @@ export default function ProductDetails(){
   const id = params.id && parseInt(params.id);
   const existingProduct = Inventory.find((product) => product.id === id);
 
+let entries = existingProduct && Object.entries(existingProduct)
+let data = entries && entries.map( ([key, val] = entry) => {
+  return `The ${key} is ${val}`;
+});
+
+console.log(data);
+
   return(
     <>
       <h2>Product Details Page - {existingProduct?.name}</h2>
@@ -19,6 +26,11 @@ export default function ProductDetails(){
         `}
       </div>
       }
+      
+      {data && data.map((entree, index) => 
+        <li key={index}>{entree}</li>
+      )}
+
       <NavLink to="/store">Back to Store</NavLink>
     </>
   )
