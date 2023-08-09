@@ -6,6 +6,7 @@ interface AppContextType{
   cart: ICartProduct[];
   onProductAdd: (newProduct: IProduct) => void;
   onProductDelete: (id: number) => void;
+  onProductRemove: (id: number) => void;
 } 
 
 interface Props {
@@ -50,10 +51,17 @@ const AppProvider: FC<Props> = ({children}) => {
       setCart((prevCart) => prevCart.filter((prevItem) => prevItem !== existingProduct));
   }
 
+  function handleProductRemove(id:number){
+    const existingProduct = cart.find((product) => product.id === id);
+    if (existingProduct)
+      setCart((prevCart) => prevCart.filter((prevItem) => prevItem !== existingProduct));
+  }
+
   const values:AppContextType = {
     cart: cart,
     onProductAdd: handleProductAdd,
-    onProductDelete: handleProductDelete
+    onProductDelete: handleProductDelete,
+    onProductRemove: handleProductRemove
   }
 
 

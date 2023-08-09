@@ -23,3 +23,10 @@ export const Yoghurt: IProduct = {
   name: "Yoghurt",
   description: "Healthy yoghurt"
 }
+
+export const Inventory = [
+  Cheese,
+  Milk,
+  Chocolate,
+  Yoghurt
+];
