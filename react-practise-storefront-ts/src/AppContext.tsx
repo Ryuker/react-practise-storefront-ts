@@ -1,9 +1,11 @@
 import {FC, createContext, useState} from 'react'
+import { IProduct } from './components/Product';
 import { ICartProduct } from './components/Cart';
 
 interface AppContextType{
   cart: ICartProduct[];
-  onProductAdd: () => any;
+  onProductAdd: (newProduct: IProduct) => void;
+  onProductDelete: () => void;
 } 
 
 interface Props {
@@ -15,8 +17,8 @@ const AppContext = createContext<AppContextType>({} as AppContextType);
 const AppProvider: FC<Props> = ({children}) => {
   const [cart, setCart] = useState<ICartProduct[]>([]);
 
-  function handleProductAdd(newProduct: ICartProduct){
-    console.log("adding product to cart");
+  function handleProductAdd(newProduct: IProduct){
+    console.log("adding product to cart"); 
     const existingProduct = cart.find((product) => product.id === newProduct.id);
     
     if (existingProduct){ // if product already exists in cart
@@ -29,12 +31,17 @@ const AppProvider: FC<Props> = ({children}) => {
     }
     
     else // product doesn't exist in cart yet 
-      setCart([...cart, newProduct]);
+      setCart([...cart, {...newProduct, quantity: 0}]);
+  }
+
+  function handleProductDelete(){
+    console.log("deleting product");
   }
 
   const values:AppContextType = {
     cart: cart,
-    onProductAdd: () => handleProductAdd
+    onProductAdd: handleProductAdd,
+    onProductDelete: handleProductDelete
   }
 
 
