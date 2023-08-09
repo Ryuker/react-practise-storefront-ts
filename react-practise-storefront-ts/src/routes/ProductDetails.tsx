@@ -7,12 +7,9 @@ export default function ProductDetails(){
   const id = params.id && parseInt(params.id);
   const existingProduct = Inventory.find((product) => product.id === id);
 
-let entries = existingProduct && Object.entries(existingProduct)
-let data = entries && entries.map( ([key, val] = entry) => {
+const productDetails = existingProduct && Object.entries(existingProduct).map( ([key, val]) => {
   return `The ${key} is ${val}`;
 });
-
-console.log(data);
 
   return(
     <>
@@ -26,8 +23,8 @@ console.log(data);
         `}
       </div>
       }
-      
-      {data && data.map((entree, index) => 
+
+      {productDetails && productDetails.map((entree, index) => 
         <li key={index}>{entree}</li>
       )}
 
