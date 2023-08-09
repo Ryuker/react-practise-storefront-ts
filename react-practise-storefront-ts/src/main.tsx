@@ -7,6 +7,7 @@ import './styles.css';
 import Home from './routes/Home'; 
 import Store from './routes/Store';
 import Cart from './routes/Cart';
+import ProductDetails from './routes/ProductDetails';
 
 // Layouts
 import RootLayout from './layouts/RootLayout';
@@ -18,6 +19,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout/>}>
         <Route index element={<Home />} />
         <Route path="/store" element={<Store />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<h1>Page: error page not found</h1>}/>
       </Route>
