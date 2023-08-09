@@ -5,9 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function ProductDetails(){
   const params = useParams();
   const id = params.id && parseInt(params.id);
-
   const existingProduct = Inventory.find((product) => product.id === id);
-
 
   return(
     <>
