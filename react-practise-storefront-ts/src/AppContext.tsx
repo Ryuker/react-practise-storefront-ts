@@ -1,4 +1,4 @@
-import React, {ReactNode, createContext, useState} from 'react'
+import { ReactNode, createContext, useState} from 'react'
 import { CartProduct } from './components/Cart';
 
 interface AppContextType{
@@ -8,7 +8,7 @@ interface AppContextType{
 
 const AppContext = createContext<AppContextType | null>(null);
 
-function AppProvider(children: React.ReactNode){
+function AppProvider(children: ReactNode){
   const [cart, setCart] = useState<CartProduct[]>([]);
 
   function handleProductAdd(newProduct: CartProduct){

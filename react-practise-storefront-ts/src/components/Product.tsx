@@ -1,11 +1,11 @@
-interface Product {
-  id?: number;
-  name?: string;
+export interface IProduct {
+  id: number;
+  name: string;
   description?: string;
 }
 
 interface IProps{
-  product: Product;
+  product: IProduct;
   onProductAdd: () => any ;
   onProductDelete: () => any ;
 }

@@ -1,38 +1,38 @@
 import {useState} from 'react';
-export interface CartProduct {
-  id: number;
-  name: string;
+import { IProduct } from './product';
+
+export interface ICartProduct extends IProduct {
   quantity: number;
 }
 
-// export let cartStorage: CartProduct[] = [];
-const dummyCart:CartProduct[] = []
+// export let cartStorage: ICartProduct[] = [];
+const dummyCart:ICartProduct[] = []
 
-const cheese:CartProduct = {
+const cheese:ICartProduct = {
   id: 1,
   name: "Cheese",
-  quantity: 1
+  quantity: 0
 }
 
-const milk:CartProduct = {
+const milk:ICartProduct = {
   id: 2,
   name: "Milk",
-  quantity: 1
+  quantity: 0
 }
 
-const chocolate:CartProduct = {
+const chocolate:ICartProduct = {
   id: 3,
   name: "Chocolate",
-  quantity: 1
+  quantity: 0
 }
 
 
 
 
 export default function CartContent(){
-  const [cart, setCart] = useState<CartProduct[]>([...dummyCart]);
+  const [cart, setCart] = useState<ICartProduct[]>([...dummyCart]);
 
-  function handleProductAdd(newProduct: CartProduct){
+  function handleProductAdd(newProduct: ICartProduct){
     console.log("adding product to cart");
     const existingProduct = cart.find((product) => product.id === newProduct.id);
     
