@@ -6,8 +6,8 @@ export interface IProduct {
 
 interface IProps{
   product: IProduct;
-  onProductAdd: () => any ;
-  onProductDelete: () => any ;
+  onProductAdd: () => void ;
+  onProductDelete: () => void ;
 }
 
 export default function Product(props: IProps){
