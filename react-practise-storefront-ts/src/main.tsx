@@ -15,12 +15,12 @@ import RootLayout from './layouts/RootLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout/>}>
-      <Route index element={<Home />} />
-      <Route path="/store" element={<Store />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="*" element={<h1>Page: error page not found</h1>}/>
-    </Route>
+      <Route path="/" element={<RootLayout/>}>
+        <Route index element={<Home />} />
+        <Route path="/store" element={<Store />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<h1>Page: error page not found</h1>}/>
+      </Route>
   )
 );
 

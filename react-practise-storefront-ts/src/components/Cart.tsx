@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { IProduct } from './product';
+import { IProduct } from './Product';
 
 export interface ICartProduct extends IProduct {
   quantity: number;
