@@ -1,3 +1,4 @@
+import CartContextDisplay from "../components/CartContextDisplay";
 import Product from "../components/Product";
 
 
@@ -46,6 +47,7 @@ export default function Store(){
           />
         )}
       </ul>
+      <CartContextDisplay />
     </>
   )
 }
