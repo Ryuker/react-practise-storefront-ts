@@ -5,7 +5,7 @@ import { ICartProduct } from './components/Cart';
 interface AppContextType{
   cart: ICartProduct[];
   onProductAdd: (newProduct: IProduct) => void;
-  onProductDelete: () => void;
+  onProductDelete: (id: number) => void;
 } 
 
 interface Props {
@@ -34,8 +34,20 @@ const AppProvider: FC<Props> = ({children}) => {
       setCart([...cart, {...newProduct, quantity: 0}]);
   }
 
-  function handleProductDelete(){
-    console.log("deleting product");
+  function handleProductDelete(id:number){ 
+    console.log("adding product to cart");
+    const existingProduct = cart.find((product) => product.id === id);
+
+    if (existingProduct && existingProduct.quantity > 1){ // if product quantity is over 0
+      const updatedCart = cart.map((prevProduct) => {
+        if (prevProduct.id === existingProduct.id)
+            return {...prevProduct, quantity: prevProduct.quantity - 1 };
+        return prevProduct;
+      });
+      setCart(updatedCart);
+    }
+    else //remove product from cart
+      setCart((prevCart) => prevCart.filter((prevItem) => prevItem !== existingProduct));
   }
 
   const values:AppContextType = {

@@ -24,19 +24,19 @@ export default function CartContextDisplay() {
       </ul>}
       <div>
         <button onClick={() => app.onProductAdd(Cheese)}>Add Cheese to Cart</button>
-        <button onClick={() => app.onProductDelete()}>Remove Product from Cart</button>
+        <button onClick={() => app.onProductDelete(Cheese.id)}>Remove Product from Cart</button>
       <div>
       </div>
         <button onClick={() => app.onProductAdd(Chocolate)}>Add Chocolate to Cart</button>
-        <button onClick={() => app.onProductDelete()}>Remove Product from Cart</button>
+        <button onClick={() => app.onProductDelete(Chocolate.id)}>Remove Product from Cart</button>
       </div>
       <div>
         <button onClick={() => app.onProductAdd(Milk)}>Add Milk to Cart</button>
-        <button onClick={() => app.onProductDelete()}>Remove Product from Cart</button>
+        <button onClick={() => app.onProductDelete(Milk.id)}>Remove Product from Cart</button>
       </div>
       <div>
         <button onClick={() => app.onProductAdd(Yoghurt)}>Add Yoghurt to Cart</button>
-        <button onClick={() => app.onProductDelete()}>Remove Product from Cart</button>
+        <button onClick={() => app.onProductDelete(Yoghurt.id)}>Remove Product from Cart</button>
       </div>
     </>
   );
