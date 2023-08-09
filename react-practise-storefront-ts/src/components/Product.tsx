@@ -25,7 +25,6 @@ export default function Product(props: IProps){
         <button onClick={() => app.onProductDelete(product.id)}>Delete entree in Cart</button>
         <button onClick={() => app.onProductRemove(product.id)}>Remove product from Cart</button>
       </div>
-      
     </>
   )
 }
