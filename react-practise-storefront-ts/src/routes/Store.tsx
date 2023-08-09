@@ -38,7 +38,7 @@ export default function Store(){
 
   return (
     <>
-      <h2>Store Page</h2>
+      <h2>Store Page - Inventory</h2>
       <ul>
         {Inventory && Inventory.map(product => 
           <Product key={product.id} product={product} />
