@@ -1,4 +1,4 @@
-import {FC, createContext, useState} from 'react'
+import {FC, createContext, useState, useEffect} from 'react'
 import { IProduct } from './components/Product';
 import { ICartProduct } from './components/Cart';
 
@@ -16,7 +16,25 @@ interface Props {
 const AppContext = createContext<AppContextType>({} as AppContextType);
 
 const AppProvider: FC<Props> = ({children}) => {
-  const [cart, setCart] = useState<ICartProduct[]>([]);
+  const [cart, setCart] = useState<ICartProduct[]>(getCart());
+
+  function getCart(){
+    let savedCart:ICartProduct[] = [];
+    try {
+      const localCart = localStorage.getItem("cart");
+      savedCart = localCart && JSON.parse(localCart);
+    } catch(error){
+      console.log(error);
+    }
+    return savedCart;
+  }
+
+  useEffect(() => {
+    if (cart){
+      console.log("storing to local storage");
+      localStorage.setItem("cart", JSON.stringify(cart));
+    } 
+  }, [cart])
 
   function handleProductAdd(newProduct: IProduct){
     console.log("adding product to cart"); 
