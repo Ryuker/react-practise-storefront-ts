@@ -1,5 +1,5 @@
 import CartContextDisplay from "../components/CartContextDisplay";
-import { Inventory } from "../components/Inventory";
+import { Inventory, InventoryFromJSON } from "../components/Inventory";
 import Product from "../components/Product";
 
 
@@ -41,6 +41,12 @@ export default function Store(){
       <h2>Store Page - Inventory</h2>
       <ul>
         {Inventory && Inventory.map(product => 
+          <Product key={product.id} product={product} />
+        )}
+      </ul>
+      <span>JSON Import</span>
+      <ul>
+        {InventoryFromJSON && InventoryFromJSON.map(product => 
           <Product key={product.id} product={product} />
         )}
       </ul>

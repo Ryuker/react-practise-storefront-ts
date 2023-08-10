@@ -1,4 +1,5 @@
 import { IProduct } from "./Product";
+import JSONInventory from '../stores/Inventory.json';
 
 export const Cheese: IProduct = {
   id: 1,
@@ -30,3 +31,5 @@ export const Inventory = [
   Chocolate,
   Yoghurt
 ];
+
+export const InventoryFromJSON: IProduct[] = JSONInventory;
