@@ -1,9 +1,18 @@
+import { useEffect } from "react";
 import CartContextDisplay from "../components/CartContextDisplay";
 import { Inventory } from "../components/Inventory";
 import Product from "../components/Product";
+import useFetch from "../hooks/useFetch.hook";
 
 
 export default function Store(){
+  const {get, message, loading } = useFetch();
+  
+  useEffect(() => {
+    console.log(get("inventory.json"), loading, message);
+  },[]);
+  // console.log("apiInventory: " + apiInventory);
+
   // const products = [
   //    {
   //     id: 1,
