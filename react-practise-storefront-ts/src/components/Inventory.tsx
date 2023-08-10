@@ -25,11 +25,12 @@ export const Yoghurt: IProduct = {
   description: "Healthy yoghurt"
 }
 
-export const Inventory = [
-  Cheese,
-  Milk,
-  Chocolate,
-  Yoghurt
-];
+// export const Inventory = [
+//   Cheese,
+//   Milk,
+//   Chocolate,
+//   Yoghurt
+// ];
 
-export const InventoryFromJSON: IProduct[] = JSONInventory;
+// export const InventoryFromJSON: IProduct[] = JSONInventory;
+export const Inventory: IProduct[] = JSONInventory;
