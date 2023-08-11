@@ -20,7 +20,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout/>}>
         <Route index element={<Home />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/storeSWR" element={<StoreSWR />} />
+        <Route path="/store-swr" element={<StoreSWR />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<h1>Page: error page not found</h1>}/>

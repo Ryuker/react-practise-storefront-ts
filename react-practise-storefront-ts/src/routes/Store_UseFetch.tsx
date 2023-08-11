@@ -61,7 +61,7 @@ export default function Store(){
 
   return (
     <>
-      <h2>Store Page - Inventory</h2>
+      <h2>Store Page - Inventory loaded with UseFetch</h2>
       <button onClick={handlePostClick}>Test</button>
       <ul>
         {products && products.map(product => 
