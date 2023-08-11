@@ -5,7 +5,8 @@ import './styles.css';
 
 // Pages
 import Home from './routes/Home'; 
-import Store from './routes/Store';
+import Store from './routes/Store_UseFetch';
+import StoreSWR from './routes/Store_SWR';
 import Cart from './routes/Cart';
 import ProductDetails from './routes/ProductDetails';
 
@@ -19,6 +20,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<RootLayout/>}>
         <Route index element={<Home />} />
         <Route path="/store" element={<Store />} />
+        <Route path="/storeSWR" element={<StoreSWR />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<h1>Page: error page not found</h1>}/>
