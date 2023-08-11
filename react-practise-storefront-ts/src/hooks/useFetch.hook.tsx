@@ -9,7 +9,7 @@ export default function useFetch(baseUrl : string){
   function get(url:string): Promise<[]>{
 
     return new Promise((resolve, reject) => {
-      fetch(baseUrl + "/"+ url)
+      fetch(baseUrl + url)
       .then((response) => response.json())
       .then(data => {
         if (!data){
@@ -28,10 +28,34 @@ export default function useFetch(baseUrl : string){
     // console.log(url);
     // obj = Inventory;
     // setLoading(false);
-    // return obj;
+    // return obj;  
   }
 
-  
+  function post(url:string, body:object) {
+    return new Promise((resolve, reject) => {
+      fetch(baseUrl + url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(!data){
+          setLoading(false);
+          return reject(data);
+        }
+        setLoading(false);
+        resolve(data);
+      })
+      .catch(error => {
+        setLoading(false);
+        reject(error);
+      });
+    });
 
-  return { get, message, loading };
+  }
+
+  return { get, post, message, loading };
 }

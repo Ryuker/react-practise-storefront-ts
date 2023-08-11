@@ -7,7 +7,7 @@ import useFetch from "../hooks/useFetch.hook";
 
 
 export default function Store(){
-  const {get, message, loading } = useFetch("http://localhost:5173");
+  const {get, post, message, loading } = useFetch("http://localhost:5173/");
   const [products, setProducts] = useState<IProduct[]>([]);
   
   useEffect(() => {
@@ -20,7 +20,11 @@ export default function Store(){
 
   },[]);
 
-  
+  function handlePostClick(){
+    post("Inventory2.json", products);
+  }
+
+
   // console.log("apiInventory: " + apiInventory);
 
   // const products = [
@@ -58,6 +62,7 @@ export default function Store(){
   return (
     <>
       <h2>Store Page - Inventory</h2>
+      <button onClick={handlePostClick}>Test</button>
       <ul>
         {products && products.map(product => 
           <Product key={product.id} product={product} />
