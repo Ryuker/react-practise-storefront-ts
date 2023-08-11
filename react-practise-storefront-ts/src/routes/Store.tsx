@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
 import CartContextDisplay from "../components/CartContextDisplay";
 // import { Inventory } from "../components/Inventory";
@@ -17,7 +18,9 @@ export default function Store(){
       setProducts(data)
     }).catch(error => console.log("couldn't load products from inventory", error));
 
-  },[get, loading, message]);
+  },[]);
+
+  
   // console.log("apiInventory: " + apiInventory);
 
   // const products = [
