@@ -1,16 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import CartContextDisplay from "../components/CartContextDisplay";
-import { Inventory } from "../components/Inventory";
-import Product from "../components/Product";
+// import { Inventory } from "../components/Inventory";
+import Product, { IProduct } from "../components/Product";
 import useFetch from "../hooks/useFetch.hook";
 
 
 export default function Store(){
-  const {get, message, loading } = useFetch();
+  const {get, message, loading } = useFetch("http://localhost:5173");
+  const [products, setProducts] = useState<IProduct[]>([]);
   
   useEffect(() => {
-    console.log(get("inventory.json"), loading, message);
-  },[]);
+    console.log(get("Inventory.json"), loading, message);
+
+    get("Inventory.json")
+    .then((data) => {
+      setProducts(data)
+    }).catch(error => console.log("couldn't load products from inventory", error));
+
+  },[get, loading, message]);
   // console.log("apiInventory: " + apiInventory);
 
   // const products = [
@@ -49,7 +56,7 @@ export default function Store(){
     <>
       <h2>Store Page - Inventory</h2>
       <ul>
-        {Inventory && Inventory.map(product => 
+        {products && products.map(product => 
           <Product key={product.id} product={product} />
         )}
       </ul>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Cheese",
+    "description": "Lovely cheese"
+  },{
+    "id": 2,
+    "name": "Milk",
+    "description": "Yummi milk"
+  },{
+    "id": 3,
+    "name": "Chocolate",
+    "description": "Sweet chocolate"
+  },{
+    "id": 4,
+    "name": "Yoghurt",
+    "description": "Healthy yoghurt"
+  },{
+    "id": 5,
+    "name": "Chocolate Bar",
+    "description": "Tasty chocolate bar"
+  }
+]
