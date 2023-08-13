@@ -2,22 +2,32 @@
   {
     "id": 1,
     "name": "Cheese",
-    "description": "Lovely cheese"
+    "description": "Lovely cheese",
+    "price": 10.00,
+    "price_id": "price_1HuavSGuhXEITAut56IgndJf"
   },{
     "id": 2,
     "name": "Milk",
-    "description": "Yummi milk"
+    "description": "Yummi milk",
+    "price": 3.00,
+    "price_id": "price_1HxVriGuhXEITAutt5KUKo2V"
   },{
     "id": 3,
     "name": "Chocolate",
-    "description": "Sweet chocolate"
+    "description": "Sweet chocolate",
+    "price": 5.50,
+    "price_id": "price_1HxVriGuhXEITAutt5KUKo2V"
   },{
     "id": 4,
     "name": "Yoghurt",
-    "description": "Healthy yoghurt"
+    "description": "Healthy yoghurt",
+    "price": 5.00,
+    "price_id": "price_1HxVriGuhXEITAutt5KUKo2V"
   },{
     "id": 5,
     "name": "Chocolate Bar",
-    "description": "Tasty chocolate bar"
+    "description": "Tasty chocolate bar",
+    "price": 2.00,
+    "price_id": "price_1HxVriGuhXEITAutt5KUKo2V"
   }
 ]

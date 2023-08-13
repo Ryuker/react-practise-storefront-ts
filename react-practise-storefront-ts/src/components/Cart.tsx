@@ -6,23 +6,26 @@ export interface ICartProduct extends IProduct {
 }
 
 // export let cartStorage: ICartProduct[] = [];
-const dummyCart:ICartProduct[] = []
+// const dummyCart:ICartProduct[] = []
 
 const cheese:ICartProduct = {
   id: 1,
   name: "Cheese",
+  price: 10,
   quantity: 0
 }
 
 const milk:ICartProduct = {
   id: 2,
   name: "Milk",
+  price: 5,
   quantity: 0
 }
 
 const chocolate:ICartProduct = {
   id: 3,
   name: "Chocolate",
+  price: 3,
   quantity: 0
 }
 
@@ -30,7 +33,7 @@ const chocolate:ICartProduct = {
 
 
 export default function CartContent(){
-  const [cart, setCart] = useState<ICartProduct[]>([...dummyCart]);
+  const [cart, setCart] = useState<ICartProduct[]>([]);
 
   function handleProductAdd(newProduct: ICartProduct){
     console.log("adding product to cart");
@@ -46,7 +49,7 @@ export default function CartContent(){
     }
     
     else // product doesn't exist in cart yet 
-      setCart([...cart, newProduct]);
+      setCart([...cart, {...newProduct, quantity: 1}]);
   }
 
   function handleProductDelete(id:number){ 

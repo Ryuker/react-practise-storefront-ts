@@ -6,6 +6,8 @@ export interface IProduct {
   id: number;
   name: string;
   description?: string;
+  price: number;
+  price_id?: string;
 }
 
 interface IProps{
@@ -21,7 +23,7 @@ export default function Product(props: IProps){
     <>
       <h2>Product {product.id} - {product.name} - <Link to={`/products/${product.id}`}>View Product</Link> </h2>
       <div>
-      <span>{product.description}</span>
+      <span>{product.description} - price: €{product.price}</span>
         <div>
           <button onClick={() => app.onProductAdd(product)}>Add to Cart</button>
           <button onClick={() => app.onProductDelete(product.id)}>Delete entree in Cart</button>

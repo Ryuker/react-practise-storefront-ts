@@ -50,7 +50,7 @@ const AppProvider: FC<Props> = ({children}) => {
     }
     
     else // product doesn't exist in cart yet 
-      setCart([...cart, {...newProduct, quantity: 0}]);
+      setCart([...cart, {...newProduct, quantity: 1}]);
   }
 
   function handleProductDelete(id:number){ 
