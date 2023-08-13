@@ -32,10 +32,12 @@ export default function CartCheckout(){
       const result = await stripe?.redirectToCheckout({
         lineItems: lineItems,
         mode: 'payment',
-        successUrl: 'https://react-tutorial.app/app.html',
-        cancelUrl: 'https://react-tutorial.app/app.html',
+        successUrl: 'http://localhost:5173/payment-sent',
+        cancelUrl: 'http://localhost:5173/payment-cancelled',
         customerEmail: email
       });
+      if (result)
+        app.onCartClear();
       console.log(result?.error);
     }catch(error){
       console.log(error);
@@ -53,6 +55,7 @@ export default function CartCheckout(){
           autoComplete="email" placeholder="Email" required/>
         <button type="submit">Pay on Stripe</button>
       </form>
+      <button onClick={() => app.onCartClear()}>Clear Cart Contents</button>
       <CartContextDisplay />
     </>
   )

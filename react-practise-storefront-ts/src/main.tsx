@@ -9,7 +9,10 @@ import Store from './routes/Store_UseFetch';
 import StoreSWR from './routes/Store_SWR';
 import Cart from './routes/Cart';
 import CartCheckout from './routes/CartCheckout';
+import PaymentSucceed from './routes/PaymentSucceed';
+import PaymentFailed from './routes/PaymentFailed';
 import ProductDetails from './routes/ProductDetails';
+
 
 
 // Layouts
@@ -25,7 +28,10 @@ const router = createBrowserRouter(
         <Route path="/store-swr" element={<StoreSWR />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/cart-checkout" element={<CartCheckout />} />
+        <Route path="/cart-checkout" element={<CartCheckout />}>
+          <Route path="/payment-succeed" element={<PaymentSucceed />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
+        </Route>
         <Route path="*" element={<h1>Page: error page not found</h1>}/>
       </Route>
   )
