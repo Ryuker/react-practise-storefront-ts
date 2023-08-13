@@ -2,7 +2,7 @@
 // import { useEffect, useState } from "react";
 import useSWR from "swr";
 import CartContextDisplay from "../components/CartContextDisplay";
-import { Inventory } from "../components/Inventory";
+// import { Inventory } from "../components/Inventory";
 import Product, { IProduct } from "../components/Product";
 
 
