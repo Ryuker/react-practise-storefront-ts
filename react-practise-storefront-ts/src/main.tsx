@@ -8,7 +8,9 @@ import Home from './routes/Home';
 import Store from './routes/Store_UseFetch';
 import StoreSWR from './routes/Store_SWR';
 import Cart from './routes/Cart';
+import CartCheckout from './routes/CartCheckout';
 import ProductDetails from './routes/ProductDetails';
+
 
 // Layouts
 import RootLayout from './layouts/RootLayout';
@@ -23,6 +25,7 @@ const router = createBrowserRouter(
         <Route path="/store-swr" element={<StoreSWR />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/cart-checkout" element={<CartCheckout />} />
         <Route path="*" element={<h1>Page: error page not found</h1>}/>
       </Route>
   )
