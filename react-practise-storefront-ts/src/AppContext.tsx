@@ -78,7 +78,8 @@ const AppProvider: FC<Props> = ({children}) => {
 
   function handleCartClear(){
     console.log("clearing cart")
-    setCart([]);
+    const emptyCart: ICartProduct[] = [];
+    setCart(emptyCart);
   }
 
   const values:AppContextType = {

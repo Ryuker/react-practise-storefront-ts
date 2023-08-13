@@ -32,8 +32,8 @@ export default function CartCheckout(){
       const result = await stripe?.redirectToCheckout({
         lineItems: lineItems,
         mode: 'payment',
-        successUrl: 'http://localhost:5173/payment-sent',
-        cancelUrl: 'http://localhost:5173/payment-cancelled',
+        successUrl: 'http://localhost:5173/cart-checkout/payment-succeed',
+        cancelUrl: 'http://localhost:5173/cart-checkout/payment-failed',
         customerEmail: email
       });
       if (result)

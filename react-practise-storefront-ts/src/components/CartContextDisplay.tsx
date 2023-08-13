@@ -9,7 +9,7 @@ export default function CartContextDisplay() {
   return (
     <>
       <h2>cart context display</h2>
-      <span>{app.cart.length > 0 ? app.cart.length + " products in cart": "no product in cart"}</span>
+      {/* <span>{app.cart.length > 0 ? app.cart.length + " products in cart": "no product in cart"}</span> */}
       {app.cart.length > 0 && 
       <ul>
         {app.cart.map(product => 
