@@ -26,9 +26,8 @@ export default function CartCheckout(){
         <input type="text" onChange={handleEmailInput} 
           autoComplete="email" placeholder="Email" required/>
         <button type="submit" onClick={handlePaymentOnStripeClick}>Pay on Stripe</button>
-      <CartContextDisplay />
       </form>
-      
+      <CartContextDisplay />
     </>
   )
 }
