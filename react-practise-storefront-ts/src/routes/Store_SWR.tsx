@@ -11,7 +11,7 @@ export default function Store(){
     data: products = [],
     isLoading,
     error,
-  } = useSWR("http://localhost:5173/Inventory.json");
+  } = useSWR("http://localhost:8080/products");
   const inventory:IProduct[] = [...products];
 
   console.log(products, isLoading, error);
