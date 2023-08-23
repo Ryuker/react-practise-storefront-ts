@@ -34,6 +34,9 @@ export default function RootLayout(){
               <li>
                 <NavLink to="/cart-checkout">Cart Checkout</NavLink>
               </li>
+              <li>
+                <NavLink to="/store-manager">Store Manager</NavLink>
+              </li>
             </ul>
             
             

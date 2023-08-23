@@ -7,6 +7,7 @@ import './styles.css';
 import Home from './routes/Home'; 
 import Store from './routes/Store_UseFetch';
 import StoreSWR from './routes/Store_SWR';
+import StoreManager from './routes/StoreManager';
 import Cart from './routes/Cart';
 import CartCheckout from './routes/CartCheckout';
 import PaymentSucceed from './routes/PaymentSucceed';
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path="/store" element={<Store />} />
         <Route path="/store-swr" element={<StoreSWR />} />
+        <Route path="/store-manager" element={<StoreManager />} />
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/cart-checkout" element={<CartCheckout />}/>

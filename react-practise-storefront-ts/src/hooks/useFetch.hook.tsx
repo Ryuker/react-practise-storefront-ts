@@ -34,7 +34,7 @@ export default function useFetch(baseUrl : string){
   function post(url:string, body:object) {
     return new Promise((resolve, reject) => {
       fetch(baseUrl + url, {
-        method: "POST",
+        method: 'POST',
         headers: {
           "Content-Type": "application/json",
         },
