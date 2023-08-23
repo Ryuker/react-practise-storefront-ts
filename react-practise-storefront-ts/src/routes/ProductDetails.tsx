@@ -1,15 +1,22 @@
 import { useContext } from "react";
-import { Inventory } from "../components/Inventory";
+import useSWR from "swr";
+// import { Inventory } from "../components/Inventory";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../AppContext";
 import CartContextDisplay from "../components/CartContextDisplay";
 
+
 export default function ProductDetails(){
   const app = useContext(AppContext);
   const params = useParams();
   const id = params.id && parseInt(params.id);
-  const existingProduct = Inventory.find((product) => product.id === id);
+  const {
+    data: product
+  } = useSWR(`http://localhost:8080/products/${id}`);
+
+  const existingProduct = product;
+  // const existingProduct = Inventory.find((product) => product.id === id);
 
 const productDetails = existingProduct && Object.entries(existingProduct).map( ([key, val]) => {
   return `The ${key} is ${val}`;
