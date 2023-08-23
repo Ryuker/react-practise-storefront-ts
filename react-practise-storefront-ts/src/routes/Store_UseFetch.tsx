@@ -6,14 +6,16 @@ import Product, { IProduct } from "../components/Product";
 import useFetch from "../hooks/useFetch.hook";
 
 
+//http://localhost:5173/
+
 export default function Store(){
-  const {get, post, message, loading } = useFetch("http://localhost:5173/");
+  const {get, post, message, loading } = useFetch("http://localhost:8080/");
   const [products, setProducts] = useState<IProduct[]>([]);
   
   useEffect(() => {
-    console.log(get("Inventory.json"), loading, message);
+    console.log(get("products"), loading, message);
 
-    get("Inventory.json")
+    get("products")
     .then((data) => {
       setProducts(data)
     }).catch(error => console.log("couldn't load products from inventory", error));
