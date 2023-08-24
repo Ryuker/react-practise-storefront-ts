@@ -57,5 +57,27 @@ export default function useFetch(baseUrl : string){
 
   }
 
-  return { get, post, message, loading };
+  function Delete(url:string) {
+    return new Promise((resolve, reject) => {
+      fetch(baseUrl + url, {
+        method: 'DELETE'
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(!data){
+          setLoading(false);
+          return reject(data);
+        }
+        setLoading(false);
+        resolve(data);
+      })
+      .catch(error => {
+        setLoading(false);
+        reject(error);
+      });
+    });
+
+  }
+
+  return { get, post, Delete, message, loading };
 }
