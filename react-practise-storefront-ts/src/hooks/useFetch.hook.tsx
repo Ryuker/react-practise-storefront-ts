@@ -60,10 +60,7 @@ export default function useFetch(baseUrl : string){
   function Delete(url:string) {
     return new Promise((resolve, reject) => {
       fetch(baseUrl + url, {
-        method: 'DELETE',
-        headers: {
-          "Content-Type": "application/json",
-        },
+        method: 'DELETE'
       })
       .then(response => response.json())
       .then(data => {

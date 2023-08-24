@@ -1,6 +1,6 @@
-import { FocusEvent } from "react";
+import { FocusEvent, useEffect } from "react";
 import StoreProduct from "../components/StoreProduct";
-import useSWR from "swr";
+import useSWR, {mutate} from "swr";
 import { IProduct } from "../components/Product";
 import ProductForm from "../components/ProductForm";
 import useFetch from "../hooks/useFetch.hook";
@@ -20,10 +20,10 @@ export default function StoreManager(){
 
   const handleFocus = (event: FocusEvent<HTMLInputElement>) => event.target.select();
 
-  function handleProductDelete(){
-    const response = Delete(deleteID.toString())
+  async function handleProductDelete(){
+    const response = await Delete(deleteID.toString())
+    await mutate('http://localhost:8080/products')
     console.log(response);
-
   }
 
   // console.log(products, isLoading, error);
