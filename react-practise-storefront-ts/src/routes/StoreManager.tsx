@@ -1,8 +1,10 @@
+import { FocusEvent } from "react";
 import StoreProduct from "../components/StoreProduct";
 import useSWR from "swr";
 import { IProduct } from "../components/Product";
 import ProductForm from "../components/ProductForm";
 import useFetch from "../hooks/useFetch.hook";
+import { useState } from "react";
 
 
 
@@ -14,9 +16,12 @@ export default function StoreManager(){
   } = useSWR("http://localhost:8080/products");
   const inventory:IProduct[] = [...products];
   const {Delete} = useFetch("http://localhost:8080/products/")
+  const [deleteID, setDeleteID] = useState(8); 
+
+  const handleFocus = (event: FocusEvent<HTMLInputElement>) => event.target.select();
 
   function handleProductDelete(){
-    const response = Delete("5")
+    const response = Delete(deleteID.toString())
     console.log(response);
 
   }
@@ -28,10 +33,14 @@ export default function StoreManager(){
       <h2>Store Manager</h2>
       <p>Add and Remove products from the store here.</p>
       <p>requests are send to the api.</p>
+
+      <label htmlFor="id">ID to delete:</label>
+      <input id="id" type="number" 
+            value={deleteID} onChange={e => setDeleteID(Number(e.target.value))} 
+            onFocus={handleFocus}/>
+      <button onClick={handleProductDelete}>delete product</button>
       
       <ProductForm />
-
-      <button onClick={handleProductDelete}>delete product</button>
       <h3>Current products in the store</h3>
       <ul>
         {inventory && inventory.map(product => 
