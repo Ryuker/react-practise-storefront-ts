@@ -4,18 +4,16 @@ import CartContextDisplay from "../components/CartContextDisplay";
 // import { Inventory } from "../components/Inventory";
 import Product, { IProduct } from "../components/Product";
 import useFetch from "../hooks/useFetch.hook";
-
-const API_PATH = import.meta.env.VITE_API_PATH;
-//http://localhost:5173/
+import { API_PATH, PRODUCTS_URL } from "../utils/paths";
 
 export default function Store(){
   const {get, post, message, loading } = useFetch(`${API_PATH}`);
   const [products, setProducts] = useState<IProduct[]>([]);
   
   useEffect(() => {
-    console.log(get("/products"), loading, message);
+    console.log(get(`${PRODUCTS_URL}`), loading, message);
 
-    get("/products")
+    get(`${PRODUCTS_URL}`)
     .then((data) => {
       setProducts(data)
     }).catch(error => console.log("couldn't load products from inventory", error));

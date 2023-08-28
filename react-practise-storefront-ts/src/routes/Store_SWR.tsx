@@ -4,15 +4,14 @@ import useSWR from "swr";
 import CartContextDisplay from "../components/CartContextDisplay";
 // import { Inventory } from "../components/Inventory";
 import Product, { IProduct } from "../components/Product";
-
-const API_PATH = import.meta.env.VITE_API_PATH;
+import { API_PATH, PRODUCTS_URL } from "../utils/paths";
 
 export default function Store(){
   const {
     data: products = [],
     isLoading,
     error,
-  } = useSWR(`${API_PATH}/products`);
+  } = useSWR(`${API_PATH}${PRODUCTS_URL}`);
   const inventory:IProduct[] = [...products];
 
   console.log(products, isLoading, error);

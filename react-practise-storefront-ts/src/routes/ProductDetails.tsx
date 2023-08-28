@@ -5,8 +5,7 @@ import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "../AppContext";
 import CartContextDisplay from "../components/CartContextDisplay";
-
-const API_PATH = import.meta.env.VITE_API_PATH;
+import { API_PATH, PRODUCTS_URL } from "../utils/paths";
 
 export default function ProductDetails(){
   const app = useContext(AppContext);
@@ -14,7 +13,7 @@ export default function ProductDetails(){
   const id = params.id && parseInt(params.id);
   const {
     data: product
-  } = useSWR(`${API_PATH}/products/${id}`);
+  } = useSWR(`${API_PATH}${PRODUCTS_URL}/${id}`);
 
   const existingProduct = product;
   // const existingProduct = Inventory.find((product) => product.id === id);
