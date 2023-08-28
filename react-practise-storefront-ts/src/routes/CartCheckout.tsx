@@ -3,9 +3,14 @@ import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import CartContextDisplay from '../components/CartContextDisplay';
 import { AppContext } from '../AppContext';
 
-const stripeLoadedPromise = loadStripe('pk_test_51HsqkCGuhXEITAut89vmc4jtjYd7XPs8hWfo2XPef15MFqI8rCFc8NqQU9WutlUBsd8kmNqHBeEmSrdMMpeEEyfT00KzeVdate');
+// const myVar = import.meta.env;
+const STRIPE_TOKEN = import.meta.env.VITE_STRIPE_TOKEN;
+
+const stripeLoadedPromise = loadStripe(STRIPE_TOKEN);
 
 export default function CartCheckout(){
+  
+
   const app = useContext(AppContext);
   const [email, setEmail] = useState<string>("");
   const totalPrice = app.cart.reduce((total, product) => total + product.price * product.quantity, 0);

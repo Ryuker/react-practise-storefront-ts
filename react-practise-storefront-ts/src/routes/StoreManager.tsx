@@ -6,23 +6,24 @@ import ProductForm from "../components/ProductForm";
 import useFetch from "../hooks/useFetch.hook";
 import { useState } from "react";
 
-
+const API_PATH = import.meta.env.VITE_API_PATH;
+// const API_PATH = 
 
 export default function StoreManager(){
   const {
     data: products = [],
     isLoading,
     error,
-  } = useSWR("http://localhost:8080/products");
+  } = useSWR(`${API_PATH}/products/`);
   const inventory:IProduct[] = [...products];
-  const {Delete} = useFetch("http://localhost:8080/products/")
+  const {Delete} = useFetch(`${API_PATH}/products/`)
   const [deleteID, setDeleteID] = useState(8); 
 
   const handleFocus = (event: FocusEvent<HTMLInputElement>) => event.target.select();
 
   async function handleProductDelete(){
     const response = await Delete(deleteID.toString())
-    await mutate('http://localhost:8080/products')
+    await mutate(`${API_PATH}/products/`)
     console.log(response);
   }
 
