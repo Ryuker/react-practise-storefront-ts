@@ -2,6 +2,7 @@ import {loadStripe} from '@stripe/stripe-js';
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import CartContextDisplay from '../components/CartContextDisplay';
 import { AppContext } from '../AppContext';
+import { API_PATH } from '../utils/paths';
 
 // const myVar = import.meta.env;
 const STRIPE_TOKEN = import.meta.env.VITE_STRIPE_TOKEN;
@@ -37,8 +38,8 @@ export default function CartCheckout(){
       const result = await stripe?.redirectToCheckout({
         lineItems: lineItems,
         mode: 'payment',
-        successUrl: 'http://localhost:5173/cart-checkout/payment-succeed',
-        cancelUrl: 'http://localhost:5173/cart-checkout/payment-failed',
+        successUrl: `${API_PATH}/cart-checkout/payment-succeed`,
+        cancelUrl: `${API_PATH}/cart-checkout/payment-failed`,
         customerEmail: email
       });
       if (result)
