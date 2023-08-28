@@ -1,5 +1,6 @@
 import { FocusEvent, FormEvent, useState } from "react";
 import useFetch from "../hooks/useFetch.hook";
+import { API_PATH, PRODUCTS_URL } from "../utils/paths";
 
 interface IAddProduct {
   name: string;
@@ -9,7 +10,7 @@ interface IAddProduct {
 }
 
 export default function ProductForm(){
-  const {post} = useFetch("http://localhost:8080/");
+  const {post} = useFetch(`${API_PATH}`);
 
   const [name, setName] = useState("Product Name");
   const [description, setDescription] = useState("Product Description");
@@ -33,7 +34,7 @@ export default function ProductForm(){
     console.log(newProduct);
 
     console.log("sending new product to api")
-    const products = post("products", newProduct).then((response) => console.log(response));
+    const products = post(`${PRODUCTS_URL}`, newProduct).then((response) => console.log(response));
   }
 
 
