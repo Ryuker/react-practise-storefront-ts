@@ -5,7 +5,10 @@
 - uses react-router-dom for routing, uses routeprovider approach
 
 ## to run: 
-- npm run dev
-
+~~~
+npm run dev
+~~~
 ## to close:
-- ctrl + c
+~~~
+ctrl + c
+~~~
