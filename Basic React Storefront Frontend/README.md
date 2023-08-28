@@ -1,4 +1,4 @@
-# React Practise Storefront in Typescript with SWC
+# Basic React Storefront Frontend in Typescript with SWC
 
 uses node v16.14.2
 uses SWR for server fetch calls
